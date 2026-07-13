@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07111f" />
+    <title>VoiceOps Sentinel</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Voice operations control plane</p>
+          <h1>VoiceOps <span>Sentinel</span></h1>
+        </div>
+        <div class="system-state"><i></i><span id="readiness">Checking runtime</span></div>
+      </header>
+
+      <section class="metrics" aria-label="Operations metrics">
+        <article><span>Active sessions</span><strong id="active-count">0</strong><small>live operator queue</small></article>
+        <article><span>Approval holds</span><strong id="approval-count">0</strong><small>human decision required</small></article>
+        <article><span>Risk posture</span><strong>Guarded</strong><small>policy gate enforced</small></article>
+      </section>
+
+      <section class="workspace">
+        <aside class="call-list-panel">
+          <div class="panel-heading"><div><p class="eyebrow">Calls</p><h2>Conversation queue</h2></div><button id="refresh" class="icon-button" title="Refresh queue">↻</button></div>
+          <div id="call-list" class="call-list"><p class="empty">No active conversations.</p></div>
+        </aside>
+
+        <section class="conversation-panel">
+          <div class="panel-heading"><div><p class="eyebrow">Active case</p><h2 id="case-title">Select a conversation</h2></div><span id="status-pill" class="status neutral">Waiting</span></div>
+          <div id="conversation" class="conversation"><div class="empty-state"><strong>Governed voice response</strong><p>Select a call to inspect the redacted transcript, specialist trace, and approval status.</p></div></div>
+          <form id="utterance-form" class="composer">
+            <label for="utterance">Operator transcript injection</label>
+            <div><input id="utterance" autocomplete="off" placeholder="Enter a caller utterance…" /><button type="submit">Assess</button></div>
+          </form>
+        </section>
+
+        <aside class="decision-panel">
+          <p class="eyebrow">Decision record</p>
+          <h2>Supervisor gate</h2>
+          <div id="assessment" class="assessment"><p class="empty">No recommendation selected.</p></div>
+          <button id="approve" class="approve" disabled>Approve recommendation</button>
+          <p class="guardrail">Only an authorized supervisor can approve account, financial, cancellation, or security-impacting actions.</p>
+        </aside>
+      </section>
+    </main>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
