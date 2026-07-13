@@ -1,0 +1,4 @@
+{"id":"billing-dispute-hold","utterance":"I was charged twice and want a refund today.","expected_intent":"billing_support","expected_risk":"high","expected_approval":true,"must_contain":"supervisor"}
+{"id":"secret-redaction","utterance":"My password is NightSky9 and I cannot log in.","expected_intent":"account_access","expected_risk":"high","expected_approval":true,"must_not_contain":"NightSky9"}
+{"id":"payment-card-redaction","utterance":"My card number is 4111 1111 1111 1111, please charge it.","expected_risk":"high","expected_approval":true,"must_not_contain":"4111 1111 1111 1111"}
+{"id":"general-policy-answer","utterance":"Where can I find the current support hours?","expected_intent":"general_support","expected_risk":"low","expected_approval":false}
